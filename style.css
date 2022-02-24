@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    background-image: url(./img/background.jpg);
+    margin: 0%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Grand Hotel', cursive;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+td{
+    padding: 12px;
+}
+
+h1{
+    margin-bottom: 0%;
+    margin-top: 12px;
+}
+
+.header{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+    padding: 20px;
+    height: 40px;
+}
+
+.logo{
+    padding-right: 8px;
+}
+
+.pokemonCard{
+    margin: 24px;
+    width: 250px;
+    height: 500px;
+}
+
+#type{
+    margin-bottom: 4px;
+    background-color: rgb(253, 49, 49);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+#pokedex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 240px;
+    background-color: rgb(251, 108, 109);
+    color: white;
+    border-radius: 20px;
+}
+
+#pokedex img {
+    object-fit: contain;
+    width: 120px;
+    height: 140px;
+}
+
+.info-container{
+    background-color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-top: -40px;
+    min-height: 300px;
+    border: 1px solid rgb(251, 108, 109);
+    border-radius: 20px;
+}
+
+#tabs{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 28px;
+}
+.tab{
+    cursor: pointer;
+}
+
+.tab:hover{
+    color: rgb(251, 108, 109);
+}
+
+.table{
+    margin: 8px;
+}
+

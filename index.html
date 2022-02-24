@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="./elements.js"></script>
+    <title>TKay´s Pokedex</title>
+</head>
+
+<body onload="loadPokemon()">
+
+    <div class="header">
+        <img class="logo" src="./img/Pokédex_logo.png" alt="">
+        <input id="input" placeholder="Only English Names" type="text">
+        <button>Search</button>
+    </div>
+    <div class="pokemonCard">
+        <div id="pokedex">
+            <h1 id="pokemonName">Name</h1>
+            <span id="type">Type</span>
+            <img id="pokemonImage">
+        </div>
+
+        <div class="info-container">
+            <div id="tabs">
+                <span onclick="about()" class="tab">About</span>
+                <span onclick="baseStats()" class="tab">Base Stats</span>
+                <!-- <span class="tab">Evolution</span> -->
+                <span onclick="moves()" class="tab">Moves</span>
+            </div>
+
+            <div id="table"></div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
