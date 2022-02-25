@@ -1,3 +1,30 @@
+function renderPokemonCard(){
+    document.getElementById('main').innerHTML += `
+    <div class="pokemonCard">
+    <div id="pokedex">
+        <h1 id="pokemonName">Name</h1>
+        <span id="type">Type</span>
+        <img id="pokemonImage">
+    </div>
+
+    <div class="info-container">
+        <div id="tabs">
+            <span onclick="about()" class="tab">About</span>
+            <span onclick="baseStats()" class="tab">Base Stats</span>
+            <!-- <span class="tab">Evolution</span> -->
+            <span onclick="moves()" class="tab">Moves</span>
+        </div>
+
+        <div id="table"></div>
+
+
+    </div>
+    </div>`;
+
+    types();
+    about();
+    renderPokemonInfo();
+}
 function aboutHTML(){
     document.getElementById('table').innerHTML =`
     <table class="table">
