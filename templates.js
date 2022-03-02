@@ -1,21 +1,21 @@
 function renderPokemonCard(){
-    document.getElementById('main').innerHTML += `
+    document.getElementById('main').innerHTML = `
     <div class="pokemonCard">
-    <div class="pokedex" id="pokedex${next}">
-        <h1 id="pokemonName${next}">Name</h1>
-        <span class="type" id="type${next}">Type</span>
-        <img id="pokemonImage${next}">
+    <div class="pokedex" id="pokedex${currentPokemon['id']}">
+        <h1 id="pokemonName${currentPokemon['id']}">Name</h1>
+        <span class="type" id="type${currentPokemon['id']}">Type</span>
+        <img id="pokemonImage${currentPokemon['id']}">
     </div>
 
     <div class="info-container">
-        <div class="tabs" id="tabs${next}">
-            <span id="about${next}" onclick="about(${next})" class="tab">About</span>
-            <span id="base-stats${next}"  onclick="baseStats(${next})" class="tab">Base Stats</span>
+        <div class="tabs" id="tabs${currentPokemon['id']}">
+            <span id="about${currentPokemon['id']}" onclick="about(${currentPokemon['id']})" class="tab">About</span>
+            <span id="base-stats${currentPokemon['id']}"  onclick="baseStats(${currentPokemon['id']})" class="tab">Base Stats</span>
             <!-- <span class="tab">Evolution</span> -->
-            <span id="moves${next}"  onclick="moves(${next})" class="tab">Moves</span>
+            <span id="moves${currentPokemon['id']}"  onclick="moves(${currentPokemon['id']})" class="tab">Moves</span>
         </div>
 
-        <div id="table${next}"></div>
+        <div id="table${currentPokemon['id']}"></div>
 
 
     </div>
@@ -23,57 +23,57 @@ function renderPokemonCard(){
 
 }
 function aboutHTML(){
-    document.getElementById('table' + next).innerHTML =`
+    document.getElementById('table' + currentPokemon['id']).innerHTML =`
     <table class="table">
     <tr>
         <td><b>Species:</b></td>
-        <td id="species${next}"></td>
+        <td id="species${currentPokemon['id']}"></td>
     </tr>
     <tr>
         <td><b>Height:</b></td>
-        <td id="height${next}"></td>
+        <td id="height${currentPokemon['id']}"></td>
     </tr>
     <tr>
         <td><b>Weight:</b></td>
-        <td id="weight${next}"></td>
+        <td id="weight${currentPokemon['id']}"></td>
     </tr>
     <tr>
         <td><b>Abilities:</b></td>
-        <td id="abilities${next}"></td>
+        <td id="abilities${currentPokemon['id']}"></td>
     </tr>
     </table>
     `;
 }
 
-function baseStatsHTML(){
-    document.getElementById('table' + next).innerHTML = `
+function baseStatsHTML(id){
+    document.getElementById('table' + id).innerHTML = `
     <table class="table">
     <tr>
         <td><b>HP:</b></td>
-        <td id="hp${next}"></td>
+        <td id="hp${currentPokemon['id']}"></td>
     </tr>
     <tr>
         <td><b>Attack:</b></td>
-        <td id="attack${next}"></td>
+        <td id="attack${currentPokemon['id']}"></td>
     </tr>
     <tr>
         <td><b>Defense:</b></td>
-        <td id="defense${next}"></td>
+        <td id="defense${currentPokemon['id']}"></td>
     </tr>
     <tr>
         <td><b>Special Attack:</b></td>
-        <td id="special-attack${next}"></td>
+        <td id="special-attack${currentPokemon['id']}"></td>
     </tr>
     </table>
     `;
 }
 
-function movesHTML(){
-    document.getElementById('table' + next).innerHTML = `
+function movesHTML(id){
+    document.getElementById('table' + id).innerHTML = `
     <table class="table">
     <tr>
         <td><b>Moves:</b></td>
-        <td id="move${next}"></td>
+        <td id="move${currentPokemon['id']}"></td>
     </tr>
     </table>
     `;

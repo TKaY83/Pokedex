@@ -1,20 +1,35 @@
 let currentPokemon;
-let next = 0;
+
+let searchedPokemons = [
+    // {
+    //     "pokemonName": "[]",
+    //     "pokemonImage": "",
+    //     "type": "",
+    //     "species": "",
+    //     "height": "",
+    //     "weight": "",
+    //     "abilities": "",
+    //     "hp": "",
+    //     "attack": "",
+    //     "defense": "",
+    //     "specialAttack": "",
+    //     "move": ""
+    // }
+];
 
 async function loadPokemon(pokemon) {
     let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
     let response = await fetch(url);
     currentPokemon = await response.json();
-    console.log('Loaded Pokemon', currentPokemon);
+    // console.log('Loaded Pokemon', currentPokemon);
     renderPokemonCard();
     renderPokemonInfo();
     types();
-    about();
+    about(currentPokemon['id']);
 }
 
 
 function searchPokemon() {
-    next++;
     let pokemon = document.getElementById('input').value;
     loadPokemon(pokemon);
     document.getElementById('input').value = ``;
@@ -22,39 +37,42 @@ function searchPokemon() {
 
 
 function renderPokemonInfo() {
-    document.getElementById('pokemonName'+ next).innerHTML = currentPokemon['name'];
-    document.getElementById('pokemonImage'+ next).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
-    document.getElementById('type'+ next).innerHTML = currentPokemon['types'][0]['type']['name'];
-
+    document.getElementById('pokemonName'+ currentPokemon['id']).innerHTML = currentPokemon['name'];
+    document.getElementById('pokemonImage'+ currentPokemon['id']).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
+    document.getElementById('type'+ currentPokemon['id']).innerHTML = currentPokemon['types'][0]['type']['name'];
+    // searchedPokemons.push([0]['pokemonName'] = currentPokemon['name']);
+    // searchedPokemons.push([0]['pokemonImage'] = currentPokemon['sprites']['other']['dream_world']['front_default']);
+    // searchedPokemons.push([0]['type'] = currentPokemon['types'][0]['type']['name']);
+    // console.log(searchedPokemons)
 }
 
 
-function about() {
+function about(id) {
     aboutHTML();
-    document.getElementById('species' + next).innerHTML = currentPokemon['types'][0]['type']['name'];
-    document.getElementById('height' + next).innerHTML = currentPokemon['height'] + '0 cm';
-    document.getElementById('weight' + next).innerHTML = currentPokemon['weight'] + ' kg';
+    document.getElementById('species' + id).innerHTML = currentPokemon['types'][0]['type']['name'];
+    document.getElementById('height' + id).innerHTML = currentPokemon['height'] + '0 cm';
+    document.getElementById('weight' + id).innerHTML = currentPokemon['weight'] + ' kg';
     for (let i = 0; i < currentPokemon['abilities'].length; i++) {
         const element = currentPokemon['abilities'][i];
         let ability = element['ability'];
-        document.getElementById('abilities' + next).innerHTML = `<div class="abilities-child">${ability['name']},</div>`;
+        document.getElementById('abilities' + id).innerHTML += `<div class="abilities-child">${ability['name']},</div>`;
     } 
 }
 
-function baseStats() {
-    baseStatsHTML();
-    document.getElementById('hp' + next).innerHTML = currentPokemon['stats'][0]['base_stat'];
-    document.getElementById('attack' + next).innerHTML = currentPokemon['stats'][1]['base_stat'];
-    document.getElementById('defense' + next).innerHTML = currentPokemon['stats'][2]['base_stat'];
-    document.getElementById('special-attack' + next).innerHTML = currentPokemon['stats'][3]['base_stat'];
+function baseStats(id) {
+    baseStatsHTML(id);
+    document.getElementById('hp' + id).innerHTML = currentPokemon['stats'][0]['base_stat'];
+    document.getElementById('attack' + id).innerHTML = currentPokemon['stats'][1]['base_stat'];
+    document.getElementById('defense' + id).innerHTML = currentPokemon['stats'][2]['base_stat'];
+    document.getElementById('special-attack' + id).innerHTML = currentPokemon['stats'][3]['base_stat'];
 }
 
 
-function moves() {
-    movesHTML();
+function moves(id) {
+    movesHTML(id);
     for (let i = 0; i < 4; i++) {
         const element = currentPokemon['moves'][i];
         let move = element['move']['name'];
-        document.getElementById('move' + next).innerHTML += move + ', ';
+        document.getElementById('move' + id).innerHTML += move + ', ';
     }
 }
