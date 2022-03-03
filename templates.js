@@ -1,5 +1,5 @@
 function renderPokemonCard(){
-    document.getElementById('main').innerHTML = `
+    document.getElementById('main').innerHTML += `
     <div class="pokemonCard">
     <div class="pokedex" id="pokedex${currentPokemon['id']}">
         <h1 id="pokemonName${currentPokemon['id']}">Name</h1>
