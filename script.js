@@ -11,6 +11,7 @@ async function loadPokemon(searchedPokemon) {
 }
 
 function renderPokemon() {
+    document.getElementById('main').innerHTML = ``;
     for (let i = 0; i < searchedPokemons.length; i++) {
         const pokemon = searchedPokemons[i];
         renderPokemonCard(pokemon);
