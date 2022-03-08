@@ -1,4 +1,4 @@
-function renderPokemonCard(pokemon, i){
+function renderPokemonCard(i){
     document.getElementById('main').innerHTML += `
     <div class="pokemonCard">
     <div class="pokedex" id="pokedex${i}">
@@ -21,30 +21,30 @@ function renderPokemonCard(pokemon, i){
     </div>`;
 
 }
-function aboutHTML(a){
-    document.getElementById('table' + a).innerHTML =`
+function aboutHTML(i){
+    document.getElementById('table' + i).innerHTML =`
     <table class="table">
     <tr>
         <td><b>Species:</b></td>
-        <td id="species${a}"></td>
+        <td id="species${i}"></td>
     </tr>
     <tr>
         <td><b>Height:</b></td>
-        <td id="height${a}"></td>
+        <td id="height${i}"></td>
     </tr>
     <tr>
         <td><b>Weight:</b></td>
-        <td id="weight${a}"></td>
+        <td id="weight${i}"></td>
     </tr>
     <tr>
         <td><b>Abilities:</b></td>
-        <td id="abilities${a}"></td>
+        <td id="abilities${i}"></td>
     </tr>
     </table>
     `;
 }
 
-function baseStatsHTML(pokemon, i){
+function baseStatsHTML(i){
     document.getElementById('table' + i).innerHTML = `
     <table class="table">
     <tr>

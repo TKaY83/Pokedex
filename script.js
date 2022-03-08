@@ -10,16 +10,18 @@ async function loadPokemon(searchedPokemon) {
     renderPokemon();
 }
 
+
 function renderPokemon() {
     document.getElementById('main').innerHTML = ``;
     for (let i = 0; i < searchedPokemons.length; i++) {
         const pokemon = searchedPokemons[i];
-        renderPokemonCard(pokemon, i);
-        renderPokemonInfo(pokemon, i);
+        renderPokemonCard(i);
+        renderPokemonInfo(i);
         types(pokemon, i);
-        baseStats(pokemon, i);
-        moves(pokemon, i);
-        about(pokemon, i);
+        about(i);
+        baseStats(i);
+        moves(i);
+
     }
 }
 
@@ -31,40 +33,40 @@ function searchPokemon() {
 }
 
 
-function renderPokemonInfo(pokemon, i) {
-    document.getElementById('pokemonName' + i).innerHTML = pokemon['name'];
-    document.getElementById('pokemonImage' + i).src = pokemon['sprites']['other']['dream_world']['front_default'];
-    document.getElementById('type' + i).innerHTML = pokemon['types'][0]['type']['name'];
+function renderPokemonInfo(i) {
+    document.getElementById('pokemonName' + i).innerHTML = searchedPokemons[i]['name'];
+    document.getElementById('pokemonImage' + i).src = searchedPokemons[i]['sprites']['other']['dream_world']['front_default'];
+    document.getElementById('type' + i).innerHTML = searchedPokemons[i]['types'][0]['type']['name'];
     // console.log(searchedPokemons)
 }
 
 
-function about(pokemon, a) {
-    aboutHTML(a);
-    document.getElementById('species' + a).innerHTML = pokemon['types'][0]['type']['name'];
-    document.getElementById('height' + a).innerHTML = pokemon['height'] + '0 cm';
-    document.getElementById('weight' + a).innerHTML = pokemon['weight'] + ' kg';
-    for (let i = 0; i < pokemon['abilities'].length; i++) {
-        const element = pokemon['abilities'][i];
+function about(i) {
+    aboutHTML(i);
+    document.getElementById('species' + i).innerHTML = searchedPokemons[i]['types'][0]['type']['name'];
+    document.getElementById('height' + i).innerHTML = searchedPokemons[i]['height'] + '0 cm';
+    document.getElementById('weight' + i).innerHTML = searchedPokemons[i]['weight'] + ' kg';
+    for (let a = 0; a < searchedPokemons[i]['abilities'].length; a++) {
+        const element = searchedPokemons[i]['abilities'][a];
         let ability = element['ability']['name'];
-        document.getElementById('abilities' + a).innerHTML += `<div class="abilities-child">${ability},</div>`;
+        document.getElementById('abilities' + i).innerHTML += `<div class="abilities-child">${ability},</div>`;
     }
 }
 
-function baseStats(pokemon, i) {
-    baseStatsHTML(pokemon, i);
-    document.getElementById('hp' + i).innerHTML = pokemon['stats'][0]['base_stat'];
-    document.getElementById('attack' + i).innerHTML = pokemon['stats'][1]['base_stat'];
-    document.getElementById('defense' + i).innerHTML = pokemon['stats'][2]['base_stat'];
-    document.getElementById('special-attack' + i).innerHTML = pokemon['stats'][3]['base_stat'];
+
+function baseStats(i) {
+    baseStatsHTML(i);
+    document.getElementById('hp' + i).innerHTML = searchedPokemons[i]['stats'][0]['base_stat'];
+    document.getElementById('attack' + i).innerHTML = searchedPokemons[i]['stats'][1]['base_stat'];
+    document.getElementById('defense' + i).innerHTML = searchedPokemons[i]['stats'][2]['base_stat'];
+    document.getElementById('special-attack' + i).innerHTML = searchedPokemons[i]['stats'][3]['base_stat'];
 }
 
 
-function moves(pokemon, m) {
+function moves(m) {
     movesHTML(m);
     for (let i = 0; i < 4; i++) {
-        const element = pokemon['moves'][i];
-        let move = element['move']['name'];
-        document.getElementById('move' + m).innerHTML += move + ', ';
+        const move = searchedPokemons[m]['moves'][m];
+        document.getElementById('move' + m).innerHTML += move['move']['name'] + ', ';
     }
 }
