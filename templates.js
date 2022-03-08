@@ -67,12 +67,12 @@ function baseStatsHTML(i){
     `;
 }
 
-function movesHTML(m){
-    document.getElementById('table' + m).innerHTML = `
+function movesHTML(i){
+    document.getElementById('table' + i).innerHTML = `
     <table class="table">
     <tr>
         <td><b>Moves:</b></td>
-        <td id="move${m}"></td>
+        <td id="move${i}"></td>
     </tr>
     </table>
     `;

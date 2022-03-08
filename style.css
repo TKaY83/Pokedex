@@ -24,6 +24,11 @@ h1{
     margin-top: 12px;
 }
 
+.main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .header{
     position: absolute;
     top: 0%;

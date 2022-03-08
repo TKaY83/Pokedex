@@ -18,9 +18,10 @@ function renderPokemon() {
         renderPokemonCard(i);
         renderPokemonInfo(i);
         types(pokemon, i);
-        about(i);
         baseStats(i);
         moves(i);
+        about(i);
+
 
     }
 }
@@ -63,10 +64,10 @@ function baseStats(i) {
 }
 
 
-function moves(m) {
-    movesHTML(m);
-    for (let i = 0; i < 4; i++) {
-        const move = searchedPokemons[m]['moves'][m];
-        document.getElementById('move' + m).innerHTML += move['move']['name'] + ', ';
+function moves(i) {
+    movesHTML(i);
+    for (let m = 0; m < 4; m++) {
+        const move = searchedPokemons[i]['moves'][m];
+        document.getElementById('move' + i).innerHTML += move['move']['name'] + ', ';
     }
 }
