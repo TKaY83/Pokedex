@@ -5,25 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/pokeicon.png">
+
     <script src="./script.js"></script>
     <script src="./templates.js"></script>
     <script src="./pokemonlist.js"></script>
     <script src="./types.js"></script>
+
     <title>TKay´s Pokedex</title>
+    
 </head>
 
 <body>
-
     <div class="header">
-        <img class="logo" src="./img/Pokédex_logo.png" alt="">
-        <form onsubmit="searchPokemon(); return false;">
-            <input id="input" required placeholder="Only English Names" type="text">
-            <button type="submit">Search</button>
+        <img class="logo" src="./img/Pokédex_logo.png">
+        <form onsubmit="searchPokemon();return false;">
+            <input class="inputfield" id="input" required placeholder="Names or Numbers" type="text">
+            <div class="button-div">
+                <button class="button" type="submit">GO!</button>
+            </div>
         </form>
     </div>
     <div class="main" id="main">
-
     </div>
 </body>
 

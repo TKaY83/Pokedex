@@ -37,4 +37,17 @@ function types(pokemon, i) {
         document.getElementById('type' + i).style = 'background-color: rgb(140, 92, 43);'
 
     }
+
+    if (pokemon['types'][0]['type']['name'] == 'psychic') {
+        document.getElementById('pokedex' + i).style = 'background-color: rgb(192, 180, 236);'
+        document.getElementById('type' + i).style = 'background-color: rgb(156, 146, 192);'
+
+    }
+
+    if (pokemon['types'][0]['type']['name'] == 'fighting') {
+        document.getElementById('pokedex' + i).style = 'background-color: rgb(198, 37, 63);'
+        document.getElementById('type' + i).style = 'background-color: rgb(204, 37, 64);'
+
+    }
 }
+
