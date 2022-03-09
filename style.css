@@ -62,9 +62,21 @@ h1 {
 
 
 .inputfield {
+    display: flex;
     border: unset;
     outline: none;
     background-color: transparent;
+    border-radius: 20px;
+    padding: 0;
+    font-size: 20px;
+    width: 155px;
+    height: 40px;
+    margin-top: 12px;
+}
+
+
+.inputfield:hover{
+    background-color: rgb(56, 56, 54, 0.1);
 }
 
 
